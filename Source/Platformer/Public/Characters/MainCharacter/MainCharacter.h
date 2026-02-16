@@ -28,7 +28,7 @@ public:
 
 	/**
 	 * @brief Подключает Enhanced Input к персонажу
-	 * @param PlayerInputComponent стандартная система ввода, получаемая автоматически
+	 * @param PlayerInputComponent Стандартная система ввода, получаемая автоматически
 	 */
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
@@ -48,12 +48,12 @@ protected:
 	virtual void BeginPlay() override;
 	
 	/**
-	 * @brief Обрабатывает действие по его типу
+	 * @brief Обрабатывает действие по его типу.
 	 * 
 	 * Отвечает соответствующим методом на входящий тип события и тип тригера
 	 * 
 	 * @param TriggerEvent TriggerEvent, запустивший событие Action
-	 * @param ActionType тип события для обработки
+	 * @param ActionType Тип события для обработки
 	 * 
 	 * @see EInteractionType
 	 */

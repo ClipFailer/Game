@@ -3,7 +3,7 @@
 
 #include "Characters/MainCharacter/MainCharacter.h"
 
-#include "Components/CharacterInputComponent.h"
+#include "Components/CharacterInputComponent/CharacterInputComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Components/InteractionComponent/InteractionComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
