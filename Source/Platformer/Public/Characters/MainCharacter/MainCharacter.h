@@ -11,6 +11,7 @@ enum class EInteractionType : uint8;
 class UInteractionComponent;
 class UCameraComponent;
 class UCharacterInputComponent;
+class UInventoryComponent;
 
 /**
  * @brief Класс главного персонажа
@@ -42,9 +43,7 @@ protected:
 	//					Movement & Interaction
 	//---------------------------------------------------------------
 	
-	/**
-	 * @brief Выполняется в начале игры
-	 */
+	/// @brief Выполняется в начале игры
 	virtual void BeginPlay() override;
 	
 	/**
@@ -61,19 +60,19 @@ protected:
 	void HandleAction(ETriggerEvent TriggerEvent, EInteractionType ActionType);
 	
 	/**
-	 * @brief Выполняет взаимодействие с интерактивным эктором
+	 * Выполняет взаимодействие с интерактивным эктором
 	 */
 	UFUNCTION(BlueprintCallable, Category = "Interaction")
 	void OnInteractActionStarted();
 	
 	/**
-	 * @brief Обрабатывает окончание второстепенного действия
+	 * Обрабатывает окончание второстепенного действия
 	 */
 	UFUNCTION(BlueprintCallable, Category = "Interaction")
 	void OnPrimaryActionStarted();
 	
 	/**
-	 * @brief Обрабатывает окончание второстепенного действия
+	 * Обрабатывает окончание второстепенного действия
 	 */
 	UFUNCTION(BlueprintCallable, Category = "Interaction")
 	void OnPrimaryActionCompleted();
@@ -105,4 +104,8 @@ protected:
 	// Компонент, отвечающий за взаимодействие персонажа с миром
 	UPROPERTY(EditDefaultsOnly, Category = "Interaction")
 	UInteractionComponent* InteractionComponent;
+
+	// Компонент, отвечающий за взаимодействие персонажа с миром
+	UPROPERTY(EditDefaultsOnly, Category = "Inventory")
+	UInventoryComponent* InventoryComponent;
 };

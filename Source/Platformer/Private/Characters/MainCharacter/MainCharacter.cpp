@@ -9,7 +9,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Interfaces/Interactable/Interactable.h"
 #include "Enums/InteractionType.h"
-
+#include "Components/InventoryComponent/InventoryComponent.h"
 
 AMainCharacter::AMainCharacter()
 {
@@ -23,6 +23,9 @@ AMainCharacter::AMainCharacter()
 	CharacterInputComponent->ActionDlg.AddDynamic(this, &ThisClass::HandleAction);
 	
 	InteractionComponent = CreateDefaultSubobject<UInteractionComponent>(TEXT("InteractionComponent"));
+
+	InventoryComponent = CreateDefaultSubobject<UInventoryComponent>(TEXT("InventoryComponent"));
+
 }
 
 void AMainCharacter::BeginPlay()
@@ -79,9 +82,26 @@ void AMainCharacter::HandleAction(ETriggerEvent TriggerEvent, EInteractionType A
 
 void AMainCharacter::OnInteractActionStarted()
 {
-	if (InteractionComponent->GetCurrentTracedActor())
+	if (ABaseObject* obj = InteractionComponent->GetCurrentTracedActor())
 	{
-		IInteractable::Execute_Interact(InteractionComponent->GetCurrentTracedActor(), this);
+		if (InteractionComponent->IsActorPickupable(obj))
+		{
+			InventoryComponent->AddItem(obj->GetInfo());
+
+			auto Items = InventoryComponent->GetAllItems();
+
+			for (auto Item : Items) 
+			{
+				GEngine->AddOnScreenDebugMessage(
+					-1,
+					2.f,
+					FColor::Blue,
+					*Item.Name.ToString()
+				);
+			}
+		}
+
+		IInteractable::Execute_Interact(obj, this);
 	}
 }
 
