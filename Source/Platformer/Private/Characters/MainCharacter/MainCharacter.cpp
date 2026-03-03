@@ -10,10 +10,13 @@
 #include "Interfaces/Interactable/Interactable.h"
 #include "Enums/InteractionType.h"
 #include "Components/InventoryComponent/InventoryComponent.h"
+#include "Components/CapsuleComponent.h"
 
 AMainCharacter::AMainCharacter()
 {
 	PrimaryActorTick.bCanEverTick = true;
+
+	GetCapsuleComponent()->SetCollisionObjectType(CharacterChannel);
 
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	CameraComponent->SetupAttachment(RootComponent);

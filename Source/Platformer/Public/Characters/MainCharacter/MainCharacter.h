@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "InputTriggers.h"
+#include "Interfaces/CharacterInterface/CharacterInferface.h"
 #include "GameFramework/Character.h"
 #include "MainCharacter.generated.h"
 
@@ -13,11 +14,13 @@ class UCameraComponent;
 class UCharacterInputComponent;
 class UInventoryComponent;
 
+#define CharacterChannel ECC_GameTraceChannel3
+
 /**
  * @brief Класс главного персонажа
  */
 UCLASS()
-class PLATFORMER_API AMainCharacter : public ACharacter
+class PLATFORMER_API AMainCharacter : public ACharacter, public ICharacterInferface
 {
 	GENERATED_BODY()
 
