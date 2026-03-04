@@ -80,10 +80,4 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "UI")
 	TSubclassOf<UInteractivePopup> InteractiveWidgetClass;
-}; Ⰰ 䌀愀琀攀最漀爀礀 㴀 ∀唀䤀∀⤀ഀഀ
-	UWidgetComponent* InteractiveWidget;
-਍ഀഀ
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "UI")
-਍ऀ吀匀甀戀挀氀愀猀猀伀昀㰀唀䤀渀琀攀爀愀挀琀椀瘀攀倀漀瀀甀瀀㸀 䤀渀琀攀爀愀挀琀椀瘀攀圀椀搀最攀琀䌀氀愀猀猀㬀ഀഀ
 };
-਍
